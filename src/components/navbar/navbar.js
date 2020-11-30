@@ -1,28 +1,47 @@
 import React from 'react';
+import './navbar.css'
 
-const Navbar = () => {
-    return <div >
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Navbar</a>
-            <button className="navbar-toggler" type="button" dataToggle="collapse" dataTarget="#navbarTogglerDemo02" ariaControls="navbarTogglerDemo02" ariaExpanded="false" ariaLabel="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+export default class Navbar extends React.Component {
 
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
+    constructor(props){
+        super(props);
+        this.state = {
+            close: true,
+        };
+        this.handleOnClick = this.handleOnClick.bind(this);
+    }
+
+    handleOnClick = () => {
+        this.setState({
+            close: !this.state.close,
+        });
+    };
+
+    render(){
+        return(
+            <div className = {this.state.close ? "navBar" : "navBar open"}>
+                <div className="logo">
+                    <p className = "iiitdmj-nav">
+                        IIITDMJ<br/>COMPANION
+                    </p>
+                </div>
+                <div className="links">
+                    <a className="link1">Timetable</a>
+                    <a className="link2">Bus Schedule</a>
+                    <a className="link3">Mess Menu</a>
+                    <a className="link4">Faculty</a>
+                </div>
+                <div>
+                    <p className = "hey-ya">
+                        HEY<br/>
+                        <span>YA !</span>
+                    </p>
+                </div>
+                <div className="nav-bar-times" onClick = {this.handleOnClick}>
+                    <a><i class="fas fa-bars"></i></a>
+                    <a><i class="fas fa-times"></i></a>
+                </div>
             </div>
-        </nav>
-    </div>
+        )
+    }
 }
-
-export default Navbar
