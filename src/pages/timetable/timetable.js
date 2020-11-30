@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginString from '../login/loginStrings';
 import firebase from '../../services/firebase';
-
+import Navbar from '../../components/navbar/navbar'
 
 export default class Home extends React.Component {
 
@@ -18,16 +18,14 @@ export default class Home extends React.Component {
     }
 
     logout = () => {
-        firebase.auth().signOut()
-        this.props.history.push('/')
         localStorage.clear()
+        this.props.history.push('/')
     }
 
     render(){
         return(
-            <div>
-                <p> IIITDMJ Companion Signed in!</p>
-                <button onClick = {this.logout}>Logout</button>
+            <div style ={{width: '100vw'}}>
+                <Navbar/>
             </div>
         )
     }

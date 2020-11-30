@@ -59,8 +59,13 @@ export default class Login extends React.Component{
     render(){
         return(
             <div class="text-center"  style = {{width:'100vw', margin: 'auto'}}>
+                <div>
+                    <p class = "iiitdmj">
+                        IIITDMJ<br/>COMPANION
+                    </p>
+                </div>
                 <form class="form-signin" noValidate onSubmit={this.handleSubmit}>
-                    <h1 class="h3 mb-3 font-weight-normal">Welcome!!</h1>
+                    <h1 class="h3 mb-3 hey-buddy">hey buddy !!</h1>
                     <label
                         for="inputEmail"
                         class="sr-only">
@@ -71,7 +76,7 @@ export default class Login extends React.Component{
                         id="email"
                         name="email"
                         class="form-control"
-                        placeholder="Email address"
+                        placeholder="EMAIL ADDRESS"
                         required
                         onChange={this.handlechange}
                         value={this.state.email}
@@ -86,27 +91,21 @@ export default class Login extends React.Component{
                         id="password"
                         name="password"
                         class="form-control"
-                        placeholder="Password"
+                        placeholder="PASSWORD"
                         onChange={this.handlechange}
                         value={this.state.password}
                         required />
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember" /> Remember me
-                        </label>
-                    </div>
                     {this.state.error ? (
                         <p class="mt-5 mb-3" style={{color: "red"}}>{this.state.error}</p>
                     ) : null}
                     <button
-                        class="btn btn-lg btn-primary btn-block"
+                        class="btn btn-lg login-button"
                         type="submit"
                         style={{color:"white"}}>
-                        Sign In
+                        <i class="fas fa-angle-right"></i>
                     </button>
-                    <p class="mt-5 mb-3 text-muted">Don't have an account?</p>
-                    <a href="/signup" class="btn btn-lg btn-light">Sign Up</a>
-                    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+                    <p class="mt-5 mb-3 dont-have-acc">Don't have an account?</p>
+                    <a href="/signup" class="btn btn-lg signup-btn" style={{color: "#fff"}}>Sign Up</a>
                 </form>
             </div>
         )

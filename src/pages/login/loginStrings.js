@@ -1,11 +1,8 @@
 const LoginString = {
-    ID : '',
     Name : '',
-    email : '',
+    Rollno : '',
     Year : '',
     Branch : '',
-    FirebaseDocumentId: 'docid',
-    UPLOAD_CHANGED: 'state_changed',
 }
 
 export default LoginString

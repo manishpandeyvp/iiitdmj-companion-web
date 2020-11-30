@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import './signup.css';
-import firebase from '../../services/firebase';
+import './details.css';
 import LoginString from '../login/loginStrings';
 
-export default class Signup extends Component {
+export default class Details extends Component {
     constructor(){
         super();
         this.state = {
-            email: "",
-            password: "",
             name: "",
+            rollno: "",
             year: "",
             branch: "",
             error: null
@@ -27,38 +25,20 @@ export default class Signup extends Component {
 
     async handleSubmit(event){
 
-        const {name, password, email, year, branch} = this.state;
+        const {name, rollno, year, branch} = this.state;
         event.preventDefault();
         if(year !== "" && branch !== ""){
             try{
-                firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(async result => {
-                    firebase.firestore().collection('users')
-                    .add({
-                        name,
-                        id: result.user.uid,
-                        email,
-                        year,
-                        branch
-                    }).then((docRef) => {
-                        localStorage.setItem(LoginString.ID, result.user.uid);
-                        localStorage.setItem(LoginString.Name, name);
-                        localStorage.setItem(LoginString.Email, email);
-                        localStorage.setItem(LoginString.Year, year);
-                        localStorage.setItem(LoginString.Branch, branch);
-                        localStorage.setItem(LoginString.UPLOAD_CHANGED, 'state_changed');
-                        localStorage.setItem(LoginString.FirebaseDocumentId, docRef.id);
+                localStorage.setItem(LoginString.Name, name);
+                localStorage.setItem(LoginString.Rollno, rollno);
+                localStorage.setItem(LoginString.Year, year);
+                localStorage.setItem(LoginString.Branch, branch);
 
-                        this.setState({
-                            name: '',
-                            password: '',
-                        });
-                        this.props.history.push("/timetable");
-                    })
-                    .catch((error) => {
-                        console.error("Error adding document: ", error);
-                    })
-                })
+                this.setState({
+                    name: '',
+                });
+
+                this.props.history.push("/timetable");
             } catch(error) {
                 console.error("Error in signing up : ", error);
             }
@@ -80,35 +60,6 @@ export default class Signup extends Component {
                 <form class="form-signin" noValidate onSubmit={this.handleSubmit}>
                     <h1 class="h3 mb-3 create-your-profile">create your<br/>profile</h1>
                     <label
-                        for="inputEmail"
-                        class="sr-only">
-                        EMAIL ADDRESS
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-control"
-                        placeholder="EMAIL ADDRESS"
-                        required
-                        onChange={this.handlechange}
-                        value={this.state.email}
-                        autofocus />
-                    <label
-                        for="inputPassword"
-                        class="sr-only">
-                        PASSWORD
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        class="form-control"
-                        placeholder="PASSWORD"
-                        onChange={this.handlechange}
-                        value={this.state.password}
-                        required />
-                    <label
                         for="inputName"
                         class="sr-only">
                         NAME
@@ -121,6 +72,20 @@ export default class Signup extends Component {
                         placeholder="NAME"
                         onChange={this.handlechange}
                         value={this.state.name}
+                        required />
+                    <label
+                        for="inputRollno"
+                        class="sr-only">
+                        ROLL NUMBER
+                    </label>
+                    <input
+                        id="rollno"
+                        type="text"
+                        class="form-control"
+                        name="rollno"
+                        placeholder="ROLL NUMBER"
+                        onChange={this.handlechange}
+                        value={this.state.rollno}
                         required />
                     <label
                         for="inputYear"
