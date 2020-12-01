@@ -34,7 +34,7 @@ export default class Navbar extends React.Component {
                 <div>
                     <p className = "hey-ya">
                         HEY<br/>
-                        <span>YA !</span>
+                        <span>{localStorage.getItem('name')}</span>
                     </p>
                 </div>
                 <div className="nav-bar-times" onClick = {this.handleOnClick}>

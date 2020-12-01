@@ -36,6 +36,7 @@
     margin: 0;
     width: 100vw;
     background-color: #f4f4f4;
+    color: #008CAB;
     padding: 0 0 0 20px;
     display: flex;
     flex-direction: column;
@@ -48,17 +49,27 @@
 .link2,
 .link3,
 .link4{
+    color: #008CAB;
     margin: 10px 0 10px 0;
     font-weight: 700;
     letter-spacing: 1px;
+    transition: transform .5s;
+}
+
+.link1:hover,
+.link2:hover,
+.link3:hover,
+.link4:hover{
+    color: #008CAB;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .nav-bar-times{
     color: #008CAB;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 2.5rem;
+    top: 12.5px;
+    right: 20px;
     cursor: pointer;
     z-index: 1500;
 }
@@ -78,6 +89,7 @@
 
 @media screen and (min-width: 750px){
     .links{
+        color: #008CAB;
         position: initial;
         width: initial;
         height: initial;
@@ -94,6 +106,7 @@
     .link2,
     .link3,
     .link4{
+        color: #008CAB;
         margin-left: 20px;
         margin-right: 20px;
         font-weight: 700;

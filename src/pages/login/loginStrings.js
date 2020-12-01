@@ -1,8 +1,8 @@
 const LoginString = {
-    Name : '',
-    Rollno : '',
-    Year : '',
-    Branch : '',
+    Name : 'default',
+    Rollno : 'default',
+    Year : 'default',
+    Branch : 'default'
 }
 
 export default LoginString

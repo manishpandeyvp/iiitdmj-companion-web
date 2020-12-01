@@ -23,16 +23,22 @@ export default class Details extends Component {
         });
     }
 
-    async handleSubmit(event){
+    handleSubmit = async (event) => {
 
         const {name, rollno, year, branch} = this.state;
         event.preventDefault();
         if(year !== "" && branch !== ""){
+
             try{
-                localStorage.setItem(LoginString.Name, name);
-                localStorage.setItem(LoginString.Rollno, rollno);
-                localStorage.setItem(LoginString.Year, year);
-                localStorage.setItem(LoginString.Branch, branch);
+                localStorage.setItem('name', name);
+                localStorage.setItem('rollno', rollno);
+                localStorage.setItem('year', year);
+                localStorage.setItem('branch', branch);
+
+                console.log(localStorage.getItem('name'));
+                console.log(localStorage.getItem('rollno'));
+                console.log(localStorage.getItem('year'));
+                console.log(localStorage.getItem('branch'));
 
                 this.setState({
                     name: '',
@@ -87,31 +93,31 @@ export default class Details extends Component {
                         onChange={this.handlechange}
                         value={this.state.rollno}
                         required />
-                    <label
-                        for="inputYear"
-                        class="sr-only">
-                        YEAR
-                    </label>
-                    <select name="year" id="year" onChange={this.handlechange}>
-                        <option value="">SELECT YOUR YEAR</option>
-                        <option value="first">Fresher</option>
-                        <option value="second">Sophomore</option>
-                        <option value="third">Junior</option>
-                        <option value="fourth">Final</option>
-                    </select>
-                    <label
-                        for="inputBranch"
-                        class="sr-only">
-                        BRANCH
-                    </label>
-                    <select name="branch" id="branch" onChange={this.handlechange}>
-                        <option value="">SELECT YOUR BRANCH</option>
-                        <option value="ece">ECE</option>
-                        <option value="cse">CSE</option>
-                        <option value="me">ME</option>
-                        <option value="design">DESIGN</option>
-                    </select>
-
+                        <label
+                            for="inputYear"
+                            class="sr-only">
+                            YEAR
+                        </label>
+                        <select name="year" id="year" onChange={this.handlechange}>
+                            <option value="">SELECT YOUR YEAR</option>
+                            <option value="first">Fresher</option>
+                            <option value="second">Sophomore</option>
+                            <option value="third">Junior</option>
+                            <option value="fourth">Final</option>
+                        </select>
+                        <label
+                            for="inputBranch"
+                            class="sr-only">
+                            BRANCH
+                        </label>
+                        <select name="branch" id="branch" onChange={this.handlechange}>
+                            <option value="">SELECT YOUR BRANCH</option>
+                            <option value="ece">ECE</option>
+                            <option value="cse">CSE</option>
+                            <option value="me">ME</option>
+                            <option value="design">DESIGN</option>
+                            <option value="sm">DESIGN</option>
+                        </select>
                     <button
                         className = "btn btn-block signup-button"
                         type="submit"
