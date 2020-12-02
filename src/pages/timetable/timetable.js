@@ -5,6 +5,7 @@ import Navbar from '../../components/navbar/navbar';
 import TimetableCard from '../../components/timetable-card/timetable-card';
 import '../../components/timetable-card/timetable-card.css'
 import './timetable.css'
+import SettingIcon from '../../components/setting-icon/setting-icon'
 
 export default class Home extends React.Component {
 
@@ -211,6 +212,7 @@ export default class Home extends React.Component {
                     </div>
                 </div>
                 <div style = {{marginBottom: '30px'}}></div>
+                <SettingIcon/>
             </div>
         )
     }
