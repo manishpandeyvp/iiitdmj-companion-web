@@ -26,10 +26,10 @@ export default class Navbar extends React.Component {
                     </p>
                 </div>
                 <div className="links">
-                    <a className="link1">Timetable</a>
+                    <a className="link1" href="/timetable">Timetable</a>
                     <a className="link2">Bus Schedule</a>
                     <a className="link3">Mess Menu</a>
-                    <a className="link4">Faculty</a>
+                    <a className="link4" href="/faculty">Faculty</a>
                 </div>
                 <div>
                     <p className = "hey-ya">

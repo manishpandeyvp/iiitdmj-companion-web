@@ -7,6 +7,7 @@ import {
 import Home from './pages/home/home';
 import Timetable from './pages/timetable/timetable';
 import Details from './pages/details/details';
+import Faculty from './pages/faculty/faculty';
 
 class App extends Component {
     render() {
@@ -27,6 +28,11 @@ class App extends Component {
                     exact
                     path = "/timetable"
                     render = { props => <Timetable {...props}/>}/>
+
+                    <Route
+                    exact
+                    path = "/faculty"
+                    render = { props => <Faculty {...props}/>}/>
                 </Switch>
             </Router>
         )
